@@ -12,16 +12,19 @@ for line in text:
         questions.append(list2)
 for line in questions:
     i = 0
-    o = 0
+    o = 0 
+    u = 0
     while i<len(questions) and o<len(words):
         print(questions[i])
         answer = input("Quel article")
         if answer == words[o]:
           print("Right answer")
+          u = 0 + 1
         else:
             print("Wrong answer")
         i = i + 1
         o = o + 1
+print (u,"sur",i)
 text.close()
 
     
