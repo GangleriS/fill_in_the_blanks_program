@@ -1,0 +1,28 @@
+import re
+words=[]
+questions=[]
+text = open("dutch", mode="r")
+for line in text:
+    line=line.rstrip("\n")
+    list=re.finditer(r"\b[dD]e\b|\b[hH]et\b", line)
+    for correspondance in list:
+        words.append(correspondance.group(0))
+    list2 = re.sub(r"((\b[Hh]et\b)|(\b[Dd]e\b))", "?", line)
+    if list2:
+        questions.append(list2)
+for line in questions:
+    i = 0
+    o = 0
+    while i<len(questions) and o<len(words):
+        print(questions[i])
+        answer = input("Quel article")
+        if answer == words[o]:
+          print("Right answer")
+        else:
+            print("Wrong answer")
+        i = i + 1
+        o = o + 1
+text.close()
+
+    
+
