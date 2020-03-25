@@ -10,22 +10,16 @@ for line in text:
     list2 = re.sub(r"((\b[Hh]et\b)|(\b[Dd]e\b))", "?", line)
     if list2:
         questions.append(list2)
-for line in questions:
-    i = 0
-    o = 0 
-    u = 0
-    while i<len(questions) and o<len(words):
-        print(questions[i])
-        answer = input("Which article? ")
-        if answer == words[o]:
-          print("Right answer")
-          u = 0 + 1
-        else:
-            print("Wrong answer")
-        i = i + 1
-        o = o + 1
-print ("Grade", u, "sur", i)
+correct = 0
+u = 0
+for question, words in zip(questions, words):
+    print(question)
+    answer = input("Quel est l'article ici? ")
+    if answer == words:
+        print("Bonne réponse")
+        correct += 1
+    else:
+        print("Mauvaise réponse")
+    u = u + 1
+print ("Résultat :", correct, "sur", u)
 text.close()
-
-    
-
